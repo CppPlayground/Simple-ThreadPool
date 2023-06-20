@@ -1,3 +1,6 @@
+#ifndef THREAD_POOL_HEADER
+#define THREAD_POOL_HEADER
+
 #include <condition_variable>
 #include <functional>
 #include <future>
@@ -65,3 +68,5 @@ private:
   std::condition_variable condition;
   bool stop;
 };
+
+#endif
