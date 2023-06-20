@@ -5,6 +5,10 @@
 
 void printNumber(int number) { std::cout << "Number: " << number << std::endl; }
 
+int multiply(const int a, const int b) {
+    return a * b;
+}
+
 int main() {
   ThreadPool pool(4);
 
@@ -26,6 +30,10 @@ int main() {
   for (auto &&result : results) {
     result.get();
   }
+
+  std::future<int> result = pool.enqueue(multiply, 3, 5);
+
+  std::cout<< result.get();
 
   return 0;
 }

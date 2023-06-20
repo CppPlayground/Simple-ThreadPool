@@ -29,3 +29,24 @@ int main() {
     return 0;
 }
 ```
+
+multiply example
+
+```c++
+#include "ThreadPool.h"
+#include <iostream>
+
+int multiply(const int a, const int b) {
+    return a * b;
+}
+
+int main() {
+    ThreadPool pool(12);
+
+    std::future<int> result = pool.enqueue(multiply, 3, 5);
+
+    std::cout<< result.get();
+
+    return 0;
+}
+```
